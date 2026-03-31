@@ -1,0 +1,13 @@
+# sim-vonr-cli sample configuration
+sip:
+  local_uri: "sip:alice@example.com"
+  registrar_uri: "sip:registrar.example.com"
+  outbound_proxy: "sip:proxy.example.com"
+
+transport:
+  protocol: "udp"
+  local_ip: "0.0.0.0"
+  local_port: 5060
+
+logging:
+  level: "info"
