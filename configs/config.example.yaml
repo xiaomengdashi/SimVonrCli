@@ -1,13 +1,32 @@
 # sim-vonr-cli sample configuration
+local:
+  bind_ip: "0.0.0.0"
+  bind_port: 5060
+
+pcscf:
+  host: "proxy.example.com"
+  port: 5060
+  transport: "udp"
+
+identity:
+  impi: "alice@example.com"
+  impu: "sip:alice@example.com"
+  realm: "example.com"
+
+auth:
+  mode: "digest"
+  digest:
+    password: "password"
+  aka:
+    opc: "00000000000000000000000000000000"
+    ki: "00000000000000000000000000000000"
+    amf: "8000"
+    sqn: "000000000000"
+
 sip:
-  local_uri: "sip:alice@example.com"
-  registrar_uri: "sip:registrar.example.com"
-  outbound_proxy: "sip:proxy.example.com"
+  user_agent: "sim-vonr-cli/0.1.0"
+  expires: 3600
+  enable_100rel: false
 
-transport:
-  protocol: "udp"
-  local_ip: "0.0.0.0"
-  local_port: 5060
-
-logging:
-  level: "info"
+ims_headers:
+  enable: false

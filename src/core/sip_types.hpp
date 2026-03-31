@@ -2,7 +2,8 @@
 
 #include <string>
 
-namespace sim::sip {
+namespace sim {
+namespace sip {
 
 enum class SipMethod {
     Invite,
@@ -38,4 +39,5 @@ inline std::string to_string(SipMethod method) {
     }
 }
 
-} // namespace sim::sip
+} // namespace sip
+} // namespace sim
