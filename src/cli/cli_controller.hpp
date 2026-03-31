@@ -11,6 +11,7 @@ enum class CliCommandType {
     Call,
     Answer,
     Hangup,
+    AutoAnswer,
     Status,
     Quit,
     Invalid,

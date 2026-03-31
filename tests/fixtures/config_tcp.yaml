@@ -26,6 +26,7 @@ sip:
   user_agent: "sim-vonr-cli/0.1.0"
   expires: 3600
   enable_100rel: false
+  auto_answer: true
 
 ims_headers:
   enable: false

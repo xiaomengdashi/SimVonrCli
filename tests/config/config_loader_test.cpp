@@ -27,9 +27,13 @@ TEST(ConfigLoaderTest, LoadsYamlConfigFromFile) {
     EXPECT_EQ(cfg.identity.impi, "alice@example.com");
     EXPECT_EQ(cfg.identity.impu, "sip:alice@example.com");
     EXPECT_EQ(cfg.identity.realm, "example.com");
+    EXPECT_EQ(cfg.auth.mode, "aka");
+    EXPECT_EQ(cfg.auth.aka.opc, "11111111111111111111111111111111");
+    EXPECT_EQ(cfg.auth.aka.ki, "11111111111111111111111111111111");
     EXPECT_EQ(cfg.sip.user_agent, "sim-vonr-cli/0.1.0");
     EXPECT_EQ(cfg.sip.expires, 3600);
     EXPECT_FALSE(cfg.sip.enable_100rel);
+    EXPECT_TRUE(cfg.sip.auto_answer);
     EXPECT_FALSE(cfg.ims_headers.enable);
 }
 

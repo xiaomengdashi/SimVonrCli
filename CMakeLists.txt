@@ -9,6 +9,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 find_package(yaml-cpp REQUIRED)
 include(CTest)
 
+set(DOUBANGO_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/third_party/doubango/build/install")
+set(DOUBANGO_INCLUDE_DIR "${DOUBANGO_INSTALL_DIR}/include")
+set(DOUBANGO_LIB_DIR "${DOUBANGO_INSTALL_DIR}/lib")
+
 add_library(sim_config
     src/config/config_loader.cpp
 )
@@ -59,6 +63,12 @@ target_include_directories(sim_auth
 target_include_directories(sim_core
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${DOUBANGO_INCLUDE_DIR}
+        ${DOUBANGO_INCLUDE_DIR}/tinysip
+        ${DOUBANGO_INCLUDE_DIR}/tinysak
+        ${DOUBANGO_INCLUDE_DIR}/tinynet
+        ${DOUBANGO_INCLUDE_DIR}/tinymedia
+        ${DOUBANGO_INCLUDE_DIR}/tinysdp
 )
 
 target_include_directories(sim_registration
@@ -86,6 +96,26 @@ target_link_libraries(sim_config
         yaml-cpp
 )
 
+target_link_libraries(sim_core
+    PUBLIC
+        sim_auth
+        ${DOUBANGO_LIB_DIR}/libtinySIP.a
+        ${DOUBANGO_LIB_DIR}/libtinyMEDIA.a
+        ${DOUBANGO_LIB_DIR}/libtinyDAV.a
+        ${DOUBANGO_LIB_DIR}/libtinyRTP.a
+        ${DOUBANGO_LIB_DIR}/libtinyHTTP.a
+        ${DOUBANGO_LIB_DIR}/libtinySDP.a
+        ${DOUBANGO_LIB_DIR}/libtinyNET.a
+        ${DOUBANGO_LIB_DIR}/libtinySIGCOMP.a
+        ${DOUBANGO_LIB_DIR}/libtinyIPSec.a
+        ${DOUBANGO_LIB_DIR}/libtinySAK.a
+        ssl
+        crypto
+        pthread
+        dl
+        m
+)
+
 add_executable(sim_vonr_cli
     src/main.cpp
 )
@@ -95,6 +125,8 @@ target_link_libraries(sim_vonr_cli
         sim_cli
         sim_registration
         sim_call
+        sim_config
+        sim_core
 )
 
 target_include_directories(sim_vonr_cli

@@ -27,7 +27,7 @@ Config load_config(const std::string& path) {
     cfg.identity.impu = root["identity"]["impu"].as<std::string>();
     cfg.identity.realm = root["identity"]["realm"].as<std::string>();
 
-    cfg.auth.mode = root["auth"]["mode"].as<std::string>();
+    cfg.auth.mode = root["auth"]["mode"].as<std::string>("aka");
     cfg.auth.digest.password = root["auth"]["digest"]["password"].as<std::string>();
     cfg.auth.aka.opc = root["auth"]["aka"]["opc"].as<std::string>();
     cfg.auth.aka.ki = root["auth"]["aka"]["ki"].as<std::string>();
@@ -37,6 +37,7 @@ Config load_config(const std::string& path) {
     cfg.sip.user_agent = root["sip"]["user_agent"].as<std::string>();
     cfg.sip.expires = root["sip"]["expires"].as<int>();
     cfg.sip.enable_100rel = root["sip"]["enable_100rel"].as<bool>();
+    cfg.sip.auto_answer = root["sip"]["auto_answer"].as<bool>(true);
 
     cfg.ims_headers.enable = root["ims_headers"]["enable"].as<bool>();
 

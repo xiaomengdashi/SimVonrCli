@@ -22,6 +22,14 @@ CliCommand CliController::Parse(const std::string& line) const {
     if (op == "hangup") {
         return {CliCommandType::Hangup, ""};
     }
+    if (op == "autoanswer") {
+        std::string mode;
+        iss >> mode;
+        if (mode == "on" || mode == "off") {
+            return {CliCommandType::AutoAnswer, mode};
+        }
+        return {CliCommandType::Invalid, ""};
+    }
     if (op == "status") {
         return {CliCommandType::Status, ""};
     }

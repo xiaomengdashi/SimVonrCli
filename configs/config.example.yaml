@@ -14,12 +14,12 @@ identity:
   realm: "example.com"
 
 auth:
-  mode: "digest"
+  mode: "aka"
   digest:
     password: "password"
   aka:
-    opc: "00000000000000000000000000000000"
-    ki: "00000000000000000000000000000000"
+    opc: "11111111111111111111111111111111"
+    ki: "11111111111111111111111111111111"
     amf: "8000"
     sqn: "000000000000"
 
@@ -27,6 +27,7 @@ sip:
   user_agent: "sim-vonr-cli/0.1.0"
   expires: 3600
   enable_100rel: false
+  auto_answer: true
 
 ims_headers:
   enable: false

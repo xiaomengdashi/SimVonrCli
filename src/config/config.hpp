@@ -43,6 +43,7 @@ struct SipConfig {
     std::string user_agent;
     int expires{0};
     bool enable_100rel{false};
+    bool auto_answer{true};
 };
 
 struct ImsHeadersConfig {
