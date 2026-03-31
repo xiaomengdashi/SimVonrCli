@@ -17,7 +17,7 @@ Config load_config(const std::string& path) {
 
     cfg.pcscf.host = root["pcscf"]["host"].as<std::string>();
     cfg.pcscf.port = root["pcscf"]["port"].as<int>();
-    cfg.pcscf.transport = root["pcscf"]["transport"].as<std::string>();
+    cfg.pcscf.transport = root["pcscf"]["transport"].as<std::string>("udp");
 
     if (cfg.pcscf.transport != "udp") {
         throw std::runtime_error("pcscf.transport must be udp");
