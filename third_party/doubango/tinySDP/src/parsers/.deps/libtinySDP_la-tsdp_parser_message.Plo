@@ -1,0 +1,127 @@
+src/parsers/libtinySDP_la-tsdp_parser_message.lo: \
+ src/parsers/tsdp_parser_message.c /usr/include/stdc-predef.h \
+ include/tinysdp/parsers/tsdp_parser_message.h include/tinysdp_config.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/long-double.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h ../config.h \
+ include/tinysdp/tsdp_message.h include/tinysdp/headers/tsdp_header.h \
+ ../tinySAK/src/tsk_ragel_state.h ../tinySAK/src/tinysak_config.h \
+ /usr/include/string.h /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+ ../tinySAK/src/tsk_common.h ../tinySAK/src/tsk_params.h \
+ ../tinySAK/src/tsk_object.h /usr/include/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h ../tinySAK/src/tsk_list.h \
+ ../tinySAK/src/tsk_mutex.h ../tinySAK/src/tsk_buffer.h \
+ ../tinySAK/src/tsk_list.h include/tinysdp/headers/tsdp_header_M.h \
+ include/tinysdp/headers/tsdp_header_A.h \
+ include/tinysdp/headers/tsdp_header_B.h \
+ include/tinysdp/headers/tsdp_header_C.h \
+ include/tinysdp/headers/tsdp_header_I.h \
+ include/tinysdp/headers/tsdp_header_K.h ../tinySAK/src/tsk_string.h \
+ include/tinysdp/headers/tsdp_header_Dummy.h \
+ include/tinysdp/headers/tsdp_header_E.h \
+ include/tinysdp/headers/tsdp_header_O.h \
+ include/tinysdp/headers/tsdp_header_P.h \
+ include/tinysdp/headers/tsdp_header_R.h \
+ include/tinysdp/headers/tsdp_header_S.h \
+ include/tinysdp/headers/tsdp_header_T.h \
+ include/tinysdp/headers/tsdp_header_U.h \
+ include/tinysdp/headers/tsdp_header_V.h \
+ include/tinysdp/headers/tsdp_header_Z.h ../tinySAK/src/tsk_debug.h
+/usr/include/stdc-predef.h:
+include/tinysdp/parsers/tsdp_parser_message.h:
+include/tinysdp_config.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
+/usr/include/stdint.h:
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+/usr/include/features.h:
+/usr/include/features-time64.h:
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+/usr/include/x86_64-linux-gnu/bits/types.h:
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+../config.h:
+include/tinysdp/tsdp_message.h:
+include/tinysdp/headers/tsdp_header.h:
+../tinySAK/src/tsk_ragel_state.h:
+../tinySAK/src/tinysak_config.h:
+/usr/include/string.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+/usr/include/strings.h:
+/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
+../tinySAK/src/tsk_common.h:
+../tinySAK/src/tsk_params.h:
+../tinySAK/src/tsk_object.h:
+/usr/include/stdio.h:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+../tinySAK/src/tsk_list.h:
+../tinySAK/src/tsk_mutex.h:
+../tinySAK/src/tsk_buffer.h:
+../tinySAK/src/tsk_list.h:
+include/tinysdp/headers/tsdp_header_M.h:
+include/tinysdp/headers/tsdp_header_A.h:
+include/tinysdp/headers/tsdp_header_B.h:
+include/tinysdp/headers/tsdp_header_C.h:
+include/tinysdp/headers/tsdp_header_I.h:
+include/tinysdp/headers/tsdp_header_K.h:
+../tinySAK/src/tsk_string.h:
+include/tinysdp/headers/tsdp_header_Dummy.h:
+include/tinysdp/headers/tsdp_header_E.h:
+include/tinysdp/headers/tsdp_header_O.h:
+include/tinysdp/headers/tsdp_header_P.h:
+include/tinysdp/headers/tsdp_header_R.h:
+include/tinysdp/headers/tsdp_header_S.h:
+include/tinysdp/headers/tsdp_header_T.h:
+include/tinysdp/headers/tsdp_header_U.h:
+include/tinysdp/headers/tsdp_header_V.h:
+include/tinysdp/headers/tsdp_header_Z.h:
+../tinySAK/src/tsk_debug.h:

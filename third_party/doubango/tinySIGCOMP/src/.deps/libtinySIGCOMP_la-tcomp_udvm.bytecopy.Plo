@@ -1,0 +1,111 @@
+src/libtinySIGCOMP_la-tcomp_udvm.bytecopy.lo: src/tcomp_udvm.bytecopy.c \
+ /usr/include/stdc-predef.h src/tcomp_udvm.h src/tinysigcomp_config.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/features.h /usr/include/features-time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/bits/timesize.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/long-double.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h ../config.h \
+ src/tcomp_message.h src/tcomp_buffer.h ../tinySAK/src/tsk_object.h \
+ ../tinySAK/src/tinysak_config.h /usr/include/string.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /usr/include/strings.h \
+ /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+ /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+ ../tinySAK/src/tsk_common.h /usr/include/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn.h \
+ /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h src/tcomp_nackinfo.h \
+ ../tinySAK/src/tsk_sha1.h src/tcomp_result.h src/tcomp_state.h \
+ ../tinySAK/src/tsk_safeobj.h ../tinySAK/src/tsk_mutex.h \
+ ../tinySAK/src/tsk_list.h ../tinySAK/src/tsk_object.h \
+ src/tcomp_reqfeed.h src/tcomp_params.h src/tcomp_types.h \
+ src/tcomp_headers_index.h src/tcomp_nack_codes.h \
+ src/tcomp_statehandler.h src/tcomp_compartment.h \
+ src/tcomp_compressordata.h src/tcomp_instructions.h \
+ ../tinySAK/src/tsk_binaryutils.h ../tinySAK/src/tsk_debug.h
+/usr/include/stdc-predef.h:
+src/tcomp_udvm.h:
+src/tinysigcomp_config.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
+/usr/include/stdint.h:
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+/usr/include/features.h:
+/usr/include/features-time64.h:
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+/usr/include/x86_64-linux-gnu/bits/types.h:
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+../config.h:
+src/tcomp_message.h:
+src/tcomp_buffer.h:
+../tinySAK/src/tsk_object.h:
+../tinySAK/src/tinysak_config.h:
+/usr/include/string.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+/usr/include/strings.h:
+/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
+../tinySAK/src/tsk_common.h:
+/usr/include/stdio.h:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+src/tcomp_nackinfo.h:
+../tinySAK/src/tsk_sha1.h:
+src/tcomp_result.h:
+src/tcomp_state.h:
+../tinySAK/src/tsk_safeobj.h:
+../tinySAK/src/tsk_mutex.h:
+../tinySAK/src/tsk_list.h:
+../tinySAK/src/tsk_object.h:
+src/tcomp_reqfeed.h:
+src/tcomp_params.h:
+src/tcomp_types.h:
+src/tcomp_headers_index.h:
+src/tcomp_nack_codes.h:
+src/tcomp_statehandler.h:
+src/tcomp_compartment.h:
+src/tcomp_compressordata.h:
+src/tcomp_instructions.h:
+../tinySAK/src/tsk_binaryutils.h:
+../tinySAK/src/tsk_debug.h:
