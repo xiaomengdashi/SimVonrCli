@@ -1,18 +1,20 @@
 #include <iostream>
+#include <string>
 
-#include "core/sip_types.hpp"
+#include "cli/cli_controller.hpp"
 
 int main() {
-    const sim::sip::SipRequest request{
-        .method = sim::sip::SipMethod::Invite,
-        .uri = "sip:bob@example.com",
-        .from = "sip:alice@example.com",
-        .to = "sip:bob@example.com",
-        .call_id = "bootstrap-call-id"
-    };
+    sim::cli::CliController controller;
+    std::string line;
 
-    std::cout << "sim-vonr-cli bootstrap running" << '\n';
-    std::cout << "sample method: " << sim::sip::to_string(request.method) << '\n';
+    std::cout << "sim_vonr_cli ready" << std::endl;
+    while (std::getline(std::cin, line)) {
+        const auto cmd = controller.Parse(line);
+        if (cmd.type == sim::cli::CliCommandType::Quit) {
+            break;
+        }
+        std::cout << "cmd=" << static_cast<int>(cmd.type) << " arg=" << cmd.arg << std::endl;
+    }
 
     return 0;
 }
