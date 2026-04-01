@@ -15,6 +15,7 @@
 #include <tinysip/tinysip/tsip_message.h>
 #include <tinymedia/tmedia_common.h>
 
+#include <cctype>
 #include <cstdint>
 #include <stdexcept>
 #include <utility>
@@ -39,6 +40,29 @@ uint16_t ParseAmf(const std::string& value) {
     }
     const auto parsed = static_cast<unsigned long>(std::stoul(value, nullptr, 16));
     return static_cast<uint16_t>(parsed & 0xFFFF);
+}
+
+std::string DecodeHexBytes(const std::string& value) {
+    std::string hex_value = value;
+    if (hex_value.rfind("0x", 0) == 0 || hex_value.rfind("0X", 0) == 0) {
+        hex_value.erase(0, 2);
+    }
+    if (hex_value.size() != 32) {
+        throw std::runtime_error("AKA K must be 16 bytes encoded as 32 hex chars");
+    }
+
+    std::string decoded;
+    decoded.reserve(16);
+    for (std::size_t i = 0; i < hex_value.size(); i += 2) {
+        const auto hi = static_cast<unsigned char>(hex_value[i]);
+        const auto lo = static_cast<unsigned char>(hex_value[i + 1]);
+        if (!std::isxdigit(hi) || !std::isxdigit(lo)) {
+            throw std::runtime_error("AKA K must be valid hex");
+        }
+        const auto byte = static_cast<char>(std::stoul(hex_value.substr(i, 2), nullptr, 16));
+        decoded.push_back(byte);
+    }
+    return decoded;
 }
 
 bool FillChallengeFromHeader(const tsip_header_t* header, Challenge& out) {
@@ -133,8 +157,8 @@ void SipStackAdapter::SetIdentity(const std::string& realm,
                                   const std::string& impu,
                                   const std::string& authMode,
                                   const std::string& digestPassword,
-                                  const std::string& akaOpc,
-                                  const std::string& akaKi,
+                                  const std::string& aka_opc,
+                                  const std::string& aka_ki,
                                   const std::string& akaAmf,
                                   const std::string& akaSqn) {
     realm_ = realm;
@@ -142,8 +166,8 @@ void SipStackAdapter::SetIdentity(const std::string& realm,
     impu_ = impu;
     authMode_ = ToLower(authMode.empty() ? "aka" : authMode);
     digestPassword_ = digestPassword;
-    akaOpc_ = akaOpc;
-    akaKi_ = akaKi;
+    akaOpc_ = aka_opc;
+    akaKi_ = (authMode_ == "aka") ? DecodeHexBytes(aka_ki) : aka_ki;
     akaAmf_ = akaAmf;
     akaSqn_ = akaSqn;
 

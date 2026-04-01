@@ -27,8 +27,8 @@ public:
                      const std::string& impu,
                      const std::string& authMode,
                      const std::string& digestPassword,
-                     const std::string& akaOpc,
-                     const std::string& akaKi,
+                     const std::string& aka_opc,
+                     const std::string& aka_ki,
                      const std::string& akaAmf,
                      const std::string& akaSqn);
     void SetEventHandler(Handler h);
