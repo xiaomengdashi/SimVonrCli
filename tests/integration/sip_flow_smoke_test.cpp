@@ -8,7 +8,14 @@ TEST(SipFlowSmokeTest, RegisterThenCallLifecycleStateTransitions) {
     sim::registration::RegistrationService registration;
     sim::call::CallService call;
 
-    registration.StartRegister();
+    int register_send_count = 0;
+    registration.SetSendRegisterHandler([&register_send_count]() {
+        ++register_send_count;
+    });
+
+    ASSERT_TRUE(registration.StartRegister());
+    ASSERT_EQ(register_send_count, 1);
+
     registration.OnResponse(200, sim::sip::SipMethod::Register, {});
     ASSERT_EQ(registration.State(), sim::registration::RegistrationState::Registered);
 
