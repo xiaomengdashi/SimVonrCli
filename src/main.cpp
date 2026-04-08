@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+#include <tinysip/tsip_timers.h>
+
 #include "cli/cli_controller.hpp"
 #include "config/config.hpp"
 #include "core/sip_stack_adapter.hpp"
@@ -11,6 +13,7 @@ int main(int argc, char** argv) {
 
     try {
         const auto cfg = sim::config::load_config(config_path);
+        tsip_timers_setA(1000);
 
         sim::sip::SipStackAdapter sip_adapter;
         sim::registration::RegistrationService registration;
