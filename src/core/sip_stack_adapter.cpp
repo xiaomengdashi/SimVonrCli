@@ -13,7 +13,11 @@
 #include <tinysip/tinysip/tsip_action.h>
 #include <tinysip/tinysip/tsip_event.h>
 #include <tinysip/tinysip/tsip_message.h>
+#include <tinydav/tdav.h>
+#include <tinymedia/tmedia_codec.h>
 #include <tinymedia/tmedia_common.h>
+#include <tinymedia/tmedia_session.h>
+#include <tinynet/tnet.h>
 
 #include <cctype>
 #include <cstdint>
@@ -24,6 +28,46 @@ namespace sim {
 namespace sip {
 
 namespace {
+
+class DoubangoRuntime {
+public:
+    DoubangoRuntime() {
+        if (tnet_startup() != 0) {
+            throw std::runtime_error("tnet_startup failed");
+        }
+        if (tdav_init() != 0) {
+            tnet_cleanup();
+            throw std::runtime_error("tdav_init failed");
+        }
+
+        const auto* audio_plugin = tmedia_session_plugin_find_by_media("audio");
+        const struct tmedia_codec_plugin_def_s* (*codec_plugins)[TMED_CODEC_MAX_PLUGINS] = nullptr;
+        tsk_size_t codec_plugin_capacity = 0;
+        tmedia_codec_plugin_registered_get_all(&codec_plugins, &codec_plugin_capacity);
+        unsigned codec_plugin_count = 0;
+        if (codec_plugins) {
+            while (codec_plugin_count < codec_plugin_capacity && (*codec_plugins)[codec_plugin_count]) {
+                ++codec_plugin_count;
+            }
+        }
+        TSK_DEBUG_INFO("Doubango audio session plugin registered=%d, codec plugin count=%u",
+                       audio_plugin ? 1 : 0,
+                       codec_plugin_count);
+    }
+
+    ~DoubangoRuntime() {
+        tdav_deinit();
+        tnet_cleanup();
+    }
+
+    DoubangoRuntime(const DoubangoRuntime&) = delete;
+    DoubangoRuntime& operator=(const DoubangoRuntime&) = delete;
+};
+
+DoubangoRuntime& GetDoubangoRuntime() {
+    static DoubangoRuntime runtime;
+    return runtime;
+}
 
 std::string ToLower(std::string value) {
     for (char& ch : value) {
@@ -135,6 +179,7 @@ SipMethod ToSipMethod(const tsip_message_t* message) {
 
 SipStackAdapter::SipStackAdapter() {
     tsk_debug_set_level(DEBUG_LEVEL_INFO);
+    (void)GetDoubangoRuntime();
 }
 
 SipStackAdapter::~SipStackAdapter() {
@@ -316,6 +361,11 @@ void SipStackAdapter::StartCall(const std::string& targetUri) {
     tsip_ssession_handle_t* session = tsip_ssession_create(
         stack,
         TSIP_SSESSION_SET_TO_STR(targetUri.c_str()),
+        TSIP_SSESSION_SET_MEDIA(
+            TSIP_MSESSION_SET_100rel(tsk_false),
+            TSIP_MSESSION_SET_TIMERS(3600, "uac"),
+            TSIP_MSESSION_SET_QOS(tmedia_qos_stype_segmented, tmedia_qos_strength_optional),
+            TSIP_MSESSION_SET_NULL()),
         TSIP_SSESSION_SET_NULL());
     if (!session) {
         throw std::runtime_error("tsip_ssession_create failed");
@@ -323,7 +373,7 @@ void SipStackAdapter::StartCall(const std::string& targetUri) {
 
     const int ret = tsip_api_invite_send_invite(
         session,
-        tmedia_none,
+        tmedia_audio,
         TSIP_ACTION_SET_NULL());
     if (ret != 0) {
         TSK_OBJECT_SAFE_FREE(session);
@@ -464,7 +514,7 @@ void SipStackAdapter::HandleTsipEvent(const ::tsip_event_s* event) {
                     }
 
                     auto* session = static_cast<tsip_ssession_handle_t*>(callSession_);
-                    if (tsip_api_invite_send_invite(session, tmedia_none, TSIP_ACTION_SET_NULL()) == 0) {
+                    if (tsip_api_invite_send_invite(session, tmedia_audio, TSIP_ACTION_SET_NULL()) == 0) {
                         inviteChallengeRetried_ = true;
                     }
                 }

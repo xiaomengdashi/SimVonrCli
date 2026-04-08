@@ -1,0 +1,32 @@
+local:
+  bind_ip: "0.0.0.0"
+  bind_port: 15062
+
+pcscf:
+  host: "127.0.0.1"
+  port: 5060
+  transport: "udp"
+
+identity:
+  impi: "460112024122024@ims.mnc011.mcc460.3gppnetwork.org"
+  impu: "sip:+8613824122024@ims.mnc011.mcc460.3gppnetwork.org"
+  realm: "ims.mnc011.mcc460.3gppnetwork.org"
+
+auth:
+  mode: "aka"
+  digest:
+    password: "testpass"
+  aka:
+    opc: "cd63cb71954a9f4e48a5994e37a02baf"
+    ki: "465b5ce8b199b49faa5f0a2ee238a6bc"
+    amf: "8000"
+    sqn: "000000000002"
+
+sip:
+  user_agent: "sim-vonr_cli/0.1.0"
+  expires: 3600
+  enable_100rel: false
+  auto_answer: true
+
+ims_headers:
+  enable: false

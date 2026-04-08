@@ -104,7 +104,7 @@ ims_headers:
 
 ### CLI 命令
 - `register`：发送 REGISTER
-- `call <sip:uri>`：发起呼叫（INVITE）
+- `call <sip:uri>`：发起呼叫（INVITE）  call sip:+8613824122023@ims.mnc011.mcc460.3gppnetwork.org
 - `answer`：应答当前来电/会话（200 OK）
 - `hangup`：挂断当前会话（BYE）
 - `autoanswer on`：开启自动接听

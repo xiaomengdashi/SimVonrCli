@@ -67,6 +67,7 @@ target_include_directories(sim_core
         ${DOUBANGO_INCLUDE_DIR}/tinysip
         ${DOUBANGO_INCLUDE_DIR}/tinysak
         ${DOUBANGO_INCLUDE_DIR}/tinynet
+        ${DOUBANGO_INCLUDE_DIR}/tinydav
         ${DOUBANGO_INCLUDE_DIR}/tinymedia
         ${DOUBANGO_INCLUDE_DIR}/tinysdp
 )
@@ -100,8 +101,10 @@ target_link_libraries(sim_core
     PUBLIC
         sim_auth
         ${DOUBANGO_LIB_DIR}/libtinySIP.a
-        ${DOUBANGO_LIB_DIR}/libtinyMEDIA.a
         ${DOUBANGO_LIB_DIR}/libtinyDAV.a
+        ${DOUBANGO_LIB_DIR}/libtinyMEDIA.a
+        ${DOUBANGO_LIB_DIR}/libtinyBFCP.a
+        ${DOUBANGO_LIB_DIR}/libtinyMSRP.a
         ${DOUBANGO_LIB_DIR}/libtinyRTP.a
         ${DOUBANGO_LIB_DIR}/libtinyHTTP.a
         ${DOUBANGO_LIB_DIR}/libtinySDP.a
@@ -109,6 +112,9 @@ target_link_libraries(sim_core
         ${DOUBANGO_LIB_DIR}/libtinySIGCOMP.a
         ${DOUBANGO_LIB_DIR}/libtinyIPSec.a
         ${DOUBANGO_LIB_DIR}/libtinySAK.a
+        asound
+        opus
+        vpx
         ssl
         crypto
         pthread
